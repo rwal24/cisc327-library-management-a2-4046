@@ -8,8 +8,7 @@ from typing import Dict, List, Optional, Tuple
 from database import (
     get_book_by_id, get_book_by_isbn, get_patron_borrow_count,
     insert_book, insert_borrow_record, update_book_availability,
-    update_borrow_record_return_date, get_all_books, get_patron_borrowed_books,
-    get_db_connection
+    update_borrow_record_return_date, get_all_books, get_patron_borrowed_books
 )
 
 
