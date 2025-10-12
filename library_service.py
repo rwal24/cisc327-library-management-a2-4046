@@ -144,7 +144,7 @@ def return_book_by_patron(patron_id: str, book_id: int) -> Tuple[bool, str]:
 
     late_fee = calculate_late_fee_for_book(patron_id, book_id)
     if late_fee:
-        return True, f"Fee Amount: {late_fee['fee_amount']}.  Days Overdue: {late_fee["days_overdue"]}.  Status: {late_fee["status"]}"
+        return True, f"Fee Amount: {late_fee['fee_amount']}.  Days Overdue: {late_fee['days_overdue']}.  Status: {late_fee['status']}"
     
 
     if not update_borrow_record_return_date(patron_id, book_id, datetime.now()):
