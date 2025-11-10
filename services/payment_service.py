@@ -82,8 +82,6 @@ class PaymentGateway:
         transaction_id = f"txn_{patron_id}_{int(time.time())}"
         return True, transaction_id, f"Payment of ${amount:.2f} processed successfully"
     
-
-    
     def refund_payment(self, transaction_id: str, amount: float) -> Tuple[bool, str]:
         """
         Refund a previous payment.
@@ -109,8 +107,6 @@ class PaymentGateway:
         refund_id = f"refund_{transaction_id}_{int(time.time())}"
         return True, f"Refund of ${amount:.2f} processed successfully. Refund ID: {refund_id}"
     
-
-
     def verify_payment_status(self, transaction_id: str) -> Dict:
         """
         Check the status of a payment transaction.

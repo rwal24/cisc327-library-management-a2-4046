@@ -4,8 +4,8 @@ import pytest
 
 
 # **************** Negative Test Cases ****************
-def test_refund_incorrect_transaction_id(mocker):
-    # comment boy here
+def test_refund_late_fee_incorrect_transaction_id(mocker):
+    # test behaviour of refund_late_fee when an incorrect transaction id is provided
     gateway = mocker.Mock(spec=PaymentGateway)
 
     result = refund_late_fee_payment("00102", 1, gateway)
@@ -17,7 +17,7 @@ def test_refund_incorrect_transaction_id(mocker):
 
 
 def test_refund_late_fee_amount_leq_zero(mocker):
-    # comment or comment this
+    # test behaviour of refund_late_fee when amount is less than or equal to 0
     gateway = mocker.Mock(spec=PaymentGateway)
 
     result = refund_late_fee_payment("txn_123", -1, gateway)
@@ -29,7 +29,7 @@ def test_refund_late_fee_amount_leq_zero(mocker):
 
 
 def test_refund_late_fee_amount_g_15(mocker):
-    # other comment space (im going backwards)
+    # test behaviour of refund_late_fee when amount is greater than 15
     gateway = mocker.Mock(spec=PaymentGateway)
 
     result = refund_late_fee_payment("txn_123", 18, gateway)
@@ -41,7 +41,7 @@ def test_refund_late_fee_amount_g_15(mocker):
 
 
 def test_refund_late_fee_unsuccessful_refund_value(mocker):
-    # comment space or something
+    # test behaviour of refund_late_fee when refund_payment returns an unsuccessful state
     gateway = mocker.Mock(spec=PaymentGateway)
     gateway.refund_payment.return_value = (False, "Refund of $10.00 failed to process.")
 
@@ -54,6 +54,7 @@ def test_refund_late_fee_unsuccessful_refund_value(mocker):
 
 # **************** Positive Test Cases ****************
 def test_refund_late_fee_successful_return(mocker):
+    # test refund_late_fee when everything goes as expected
     gateway = mocker.Mock(spec=PaymentGateway)
     gateway.refund_payment.return_value = (True, "Refund of $15.00 processed successfully. Refund ID: tnx_")
 
