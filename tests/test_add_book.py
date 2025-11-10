@@ -1,4 +1,4 @@
-from library_service import add_book_to_catalog
+from services.library_service import add_book_to_catalog
 import pytest
 
 def reset_db():

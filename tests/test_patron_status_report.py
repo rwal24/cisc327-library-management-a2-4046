@@ -1,4 +1,4 @@
-from library_service import get_patron_status_report, add_book_to_catalog, return_book_by_patron, borrow_book_by_patron
+from services.library_service import get_patron_status_report, add_book_to_catalog, return_book_by_patron, borrow_book_by_patron
 from database import init_database, get_book_by_isbn
 import pytest
 
